@@ -1,5 +1,6 @@
-# build output
-dist/
+# my setting
+# dist/
+.htaccess
 
 # generated types
 .astro/
