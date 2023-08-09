@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./", // ソースファイルのルートディレクトリ
+    "declaration": true,
+    // "declarationDir": "./types" // 型定義ファイルの出力先ディレクトリ
+    "paths": {
+      "@npm/*": ["./*"],
+      "@/*": ["../src/*"],
+      "@@/*": ["../*"]
+    }
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
+}
