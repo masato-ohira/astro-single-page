@@ -1,11 +1,17 @@
-const cheerio = require('cheerio')
+import { load as cheerioLoad } from 'cheerio'
+
+export type SvgType = {
+  tag: string
+  attr: Record<string, any>
+  child: any[]
+}
 
 // SVGをJSONに変換する関数
-const convertSvgToJson = (svg) => {
-  const $ = cheerio.load(svg, { xmlMode: true })
+export const svgToJson = (svg: string) => {
+  const $ = cheerioLoad(svg, { xmlMode: true })
 
-  const convertElementToJson = function (element) {
-    const obj = {
+  const convertElementToJson = function (element: any) {
+    const obj: SvgType = {
       tag: element.name,
       attr: {},
       child: [],
@@ -17,7 +23,7 @@ const convertSvgToJson = (svg) => {
     }
 
     // 子要素を処理
-    element.children.forEach((childNode) => {
+    element.children.forEach((childNode: any) => {
       if (childNode.type === 'tag') {
         const childElement = childNode
         const childJson = convertElementToJson(childElement)
@@ -30,5 +36,3 @@ const convertSvgToJson = (svg) => {
 
   return convertElementToJson($('svg')[0])
 }
-
-module.exports = convertSvgToJson

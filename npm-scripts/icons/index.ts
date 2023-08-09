@@ -1,18 +1,18 @@
-const fs = require('fs-extra')
-const _ = require('lodash')
-const svgToJson = require('./svgToJson.cjs')
+import fs from 'fs-extra'
+import { endsWith, filter } from 'lodash-es'
+import { svgToJson, SvgType } from './svgToJson'
 
 const srcDir = `src/components/icons/svg`
 const distDir = `src/components/icons`
 
 const svgList = () => {
   const dirInfo = fs.readdirSync(srcDir)
-  const svgList = _.filter(dirInfo, (i) => _.endsWith(i, '.svg'))
+  const svgList = filter(dirInfo, (i: string) => endsWith(i, '.svg'))
   return svgList
 }
 
 const main = async () => {
-  const allSvg = {}
+  const allSvg: Record<string, SvgType> = {}
   for (let svgName of svgList()) {
     const svgTag = fs.readFileSync(`${srcDir}/${svgName}`, 'utf-8')
     const json = svgToJson(svgTag)

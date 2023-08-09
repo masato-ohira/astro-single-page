@@ -8,6 +8,7 @@
     "ssg": "astro build",
     "preview": "astro preview",
     "fetch": "ts-node npm-scripts/fetch/index.ts",
+    "icons": "ts-node npm-scripts/icons/index.ts",
     "astro": "astro",
     "test": "jest --verbose",
     "git": "git add . && git commit -a -m $M"
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/fs-extra": "^11.0.1",
     "@types/jest": "^29.5.2",
     "@types/lodash-es": "^4.17.7",
     "@types/node": "^20.3.3",
