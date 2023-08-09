@@ -1,10 +1,11 @@
 import { MyBox } from '@/components/ui/MyBox'
 import { MyCenter } from '@/components/ui/MyCenter'
 import { MyIcon } from '@/components/icons/MyIcon'
+import { tw } from 'typewind'
 
 export const IndexPage = () => {
   return (
-    <div className={'bg-gray-100 leading-7'}>
+    <div className={`${tw.bg_gray_500.leading_7}`}>
       <MyCenter className={'min-h-screen'}>
         <MyBox
           className={
