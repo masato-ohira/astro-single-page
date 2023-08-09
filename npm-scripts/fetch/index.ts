@@ -1,4 +1,3 @@
-// import {  } from '@npm/fetch/index'
 import axios from 'axios'
 
 const main = async () => {

@@ -1,6 +1,8 @@
-module.exports = {
+import type { Config } from '@jest/types'
+
+const jestConig: Config.InitialOptions = {
   // testMatch: ['**/__tests__/**/*.ts', '**/__tests__/**/*.js'],
-  testEnvironment: 'jsdom',
+  // testEnvironment: 'jsdom',
   // preset: 'ts-jest',
   moduleNameMapper: {
     '^lodash-es$': 'lodash',
@@ -9,3 +11,5 @@ module.exports = {
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
   testEnvironment: 'jest-environment-jsdom',
 }
+
+export default jestConig
